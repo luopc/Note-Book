@@ -1,0 +1,17 @@
+<dependency>
+  <groupId>redis.clients</groupId>
+  <artifactId>jedis</artifactId>
+  <version>2.8.1</version>
+</dependency>
+<dependency>
+    <groupId>biz.paluch.redis</groupId>
+    <artifactId>lettuce</artifactId>
+    <version>3.5.0.Final</version>
+</dependency>
+
+
+echo never > /sys/kernel/mm/transparent_hugepage/enabled
+echo "vm.overcommit_memory = 1" > /etc/sysctl.conf
+echo 511 /proc/sys/net/core/somaxconn
+
+/usr/app/redis-cluster/bin/redis-trib.rb create --replicas 1 192.168.137.141:7001 192.168.137.141:7002 192.168.137.141:7003 192.168.137.141:7004 192.168.137.141:7005 192.168.137.141:7006
